@@ -116,73 +116,74 @@ class NotionPyRenderer(BaseRenderer):
         #Notion seems really picky about the language field and the case sensitivity
         #so we match the string to the specific version that Notion.so expects
         notionSoLangs = [
-            "ABAP", 
-            "Arduino", 
-            "Bash", 
-            "BASIC", 
-            "C", 
-            "Clojure", 
-            "CoffeeScript", 
-            "C++", 
-            "C#", 
-            "CSS", 
-            "Dart", 
-            "Diff", 
-            "Docker", 
-            "Elixir", 
-            "Elm", 
-            "Erlang", 
-            "Flow", 
-            "Fortran", 
-            "F#", 
-            "Gherkin", 
-            "GLSL", 
-            "Go", 
-            "GraphQL", 
-            "Groovy", 
-            "Haskell", 
-            "HTML", 
-            "Java", 
-            "JavaScript", 
-            "JSON", 
-            "Kotlin", 
-            "LaTeX", 
-            "Less", 
-            "Lisp", 
-            "LiveScript", 
-            "Lua", 
-            "Makefile", 
-            "Markdown", 
-            "Markup", 
-            "MATLAB", 
-            "Nix", 
-            "Objective-C", 
-            "OCaml", 
-            "Pascal", 
-            "Perl", 
-            "PHP", 
-            "Plain Text", 
-            "PowerShell", 
-            "Prolog", 
-            "Python", 
-            "R", 
-            "Reason", 
-            "Ruby", 
-            "Rust", 
-            "Sass", 
-            "Scala", 
-            "Scheme", 
-            "Scss", 
-            "Shell", 
-            "SQL", 
-            "Swift", 
-            "TypeScript", 
-            "VB.Net", 
-            "Verilog", 
-            "VHDL", 
-            "Visual Basic", 
-            "WebAssembly", 
-            "XML", 
+            "ABAP",
+            "Arduino",
+            "Bash",
+            "BASIC",
+            "C",
+            "Clojure",
+            "CoffeeScript",
+            "C++",
+            "C#",
+            "CSS",
+            "Dart",
+            "Diff",
+            "Docker",
+            "Elixir",
+            "Elm",
+            "Erlang",
+            "Flow",
+            "Fortran",
+            "F#",
+            "Gherkin",
+            "GLSL",
+            "Go",
+            "GraphQL",
+            "Groovy",
+            "Haskell",
+            "HTML",
+            "Java",
+            "JavaScript",
+            "JSON",
+            "Kotlin",
+            "LaTeX",
+            "Less",
+            "Lisp",
+            "LiveScript",
+            "Lua",
+            "Makefile",
+            "Markdown",
+            "Mermaid",
+            "Markup",
+            "MATLAB",
+            "Nix",
+            "Objective-C",
+            "OCaml",
+            "Pascal",
+            "Perl",
+            "PHP",
+            "Plain Text",
+            "PowerShell",
+            "Prolog",
+            "Python",
+            "R",
+            "Reason",
+            "Ruby",
+            "Rust",
+            "Sass",
+            "Scala",
+            "Scheme",
+            "Scss",
+            "Shell",
+            "SQL",
+            "Swift",
+            "TypeScript",
+            "VB.Net",
+            "Verilog",
+            "VHDL",
+            "Visual Basic",
+            "WebAssembly",
+            "XML",
             "YAML"
         ]
         if token.language != "":
@@ -367,7 +368,7 @@ class NotionPyRenderer(BaseRenderer):
             return (''.join(self._html), self._images)
 
         def handle_starttag(self, tag, attrs):
-            if tag != "img": 
+            if tag != "img":
                 self._html.append(self.get_starttag_text())
                 return
 
@@ -382,7 +383,7 @@ class NotionPyRenderer(BaseRenderer):
             self._images.append(image)
 
         def handle_endtag(self, tag):
-            if tag != "img": 
+            if tag != "img":
                 self._html.append(f'</{tag}>')
 
         def handle_data(self, data):
@@ -404,7 +405,7 @@ class NotionPyRenderer(BaseRenderer):
 
     def render_html_block(self, token):
         assert not hasattr(token, "children")
-        return self.render_html(token) 
+        return self.render_html(token)
 
     def render_html_span(self, token):
         assert not hasattr(token, "children")
